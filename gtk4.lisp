@@ -43,10 +43,10 @@
 
 (cl:export 'widget-margin-all)
 
-(cl:defun destroy-all-windows-and-quit ()
-  (cl:mapcar (alexandria:compose #'window-close (alexandria:curry #'make-window :pointer))
-             (glib:glist-list (application-windows gio:*application*)))
-  (idle-add (cl:lambda () (gio:application-quit gio:*application*))))
+;; (cl:defun destroy-all-windows-and-quit ()
+;;   (cl:mapcar (alexandria:compose #'window-close (alexandria:curry #'make-window :pointer))
+;;              (glib:glist-list (application-windows gio:*application*)))
+;;   (idle-add (cl:lambda () (gio:application-quit gio:*application*))))
 
 (cl:defun read-return-value ()
   (cl:format cl:*query-io* "~&Enter the return value: ")
