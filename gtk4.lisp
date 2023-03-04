@@ -42,11 +42,13 @@
            (widget-margin-end instance) value))
 
 (cl:export 'widget-margin-all)
-
-;; (cl:defun destroy-all-windows-and-quit ()
-;;   (cl:mapcar (alexandria:compose #'window-close (alexandria:curry #'make-window :pointer))
-;;              (glib:glist-list (application-windows gio:*application*)))
-;;   (idle-add (cl:lambda () (gio:application-quit gio:*application*))))
+(cl:defun destroy-all-windows-and-quit ()
+  ;; decide how to get the app object or diverge from the original contributor
+  (let ((app nil))
+    (when app
+      (loop for aw = (gtk4:application-active-window app)
+            until (null aw)
+            do (gtk4:window-close aw)))))
 
 (cl:defun read-return-value ()
   (cl:format cl:*query-io* "~&Enter the return value: ")
