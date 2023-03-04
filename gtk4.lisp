@@ -44,11 +44,12 @@
 (cl:export 'widget-margin-all)
 (cl:defun destroy-all-windows-and-quit ()
   ;; decide how to get the app object or diverge from the original contributor
-  (cl:let ((app nil))
-    (cl:when app
-      (cl:loop for aw = (gtk4:application-active-window app)
-            cl:until (cl:null aw)
-            cl:do (gtk4:window-close aw)))))
+  ;; (cl:let ((app nil))
+  ;;   (cl:when app
+  ;;     (cl:loop for aw = (gtk4:application-active-window app)
+  ;;           cl:until (cl:null aw)
+  ;;           cl:do (gtk4:window-close aw))))
+  )
 
 (cl:defun read-return-value ()
   (cl:format cl:*query-io* "~&Enter the return value: ")
