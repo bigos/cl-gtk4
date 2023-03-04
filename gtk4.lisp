@@ -46,6 +46,16 @@
 
 (export 'widget-margin-all)
 
+
+(defun destroy-all-windows-and-quit ()
+  ;; decide how to get the app object or diverge from the original contributor
+  ;; (cl:let ((app nil))
+  ;;   (cl:when app
+  ;;     (cl:loop for aw = (gtk4:application-active-window app)
+  ;;           cl:until (cl:null aw)
+  ;;           cl:do (gtk4:window-close aw))))
+  )
+
 (defun destroy-all-windows ()
   (mapcar (alexandria:compose #'window-close (alexandria:curry #'make-window :pointer))
           (glib:glist-list (application-windows gio:*application*))))
