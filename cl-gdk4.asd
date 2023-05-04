@@ -7,10 +7,10 @@
   :author "Bohong Huang <1281299809@qq.com>"
   :maintainer "Bohong Huang <1281299809@qq.com>"
   :license "lgpl3"
-  :description "GDK4 binding for Common Lisp."
-  :homepage "https://github.com/BohongHuang/cl-gtk4"
-  :bug-tracker "https://github.com/BohongHuang/cl-gtk4/issues"
-  :source-control (:git "https://github.com/BohongHuang/cl-gtk4.git")
+  :description "GDK4 bindings for Common Lisp."
+  :homepage "https://github.com/bohonghuang/cl-gtk4"
+  :bug-tracker "https://github.com/bohonghuang/cl-gtk4/issues"
+  :source-control (:git "https://github.com/bohonghuang/cl-gtk4.git")
   :serial t
   :components ((:file "gdk4"))
   :depends-on (#:cl-gobject-introspection-wrapper))
@@ -32,4 +32,5 @@
   :build-pathname "cl-gdk4-example"
   :entry-point "gdk4.example:cairo-test"
   :pathname "./examples"
-  :components ((:file "gdk4-cairo")))
+  :components ((:file "gdk4")
+               (:file "gdk4-cairo" :depends-on ("gdk4"))))
